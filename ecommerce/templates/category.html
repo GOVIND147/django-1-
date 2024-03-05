@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+<div>
+    <img src="{% static 'images/banner2.avif ' %}" height="450px" width="100%">
+</div>
+
+<div class="container-fluid mt-3" style="margin-bottom:100px;">
+    <h3 class="text-center fw-bold">Our Collections</h3>
+    <p style="text-align:justify;line-height:2;">SHOPCART is a one stop shop for all your fashion and lifestyle needs. Being India's largest e-commerce store for fashion and lifestyle products, SHOPCART aims at providing a hassle free and enjoyable shopping experience to shoppers across the country with the widest range of brands and products on its portal. The brand is making a conscious effort to bring the power of fashion to shoppers with an array of the latest and trendiest products available in the country. </p>
+</div>
+
+
+<div class="container-fluid" style="margin-bottom:100px;">
+    <div class="row">
+        {% for i in c %}
+        <div class="col-sm-4">
+            <div class="card" style="width: 25rem;">
+  <img src="{{i.image.url}}" height="200px",width="100%" class="card-img-top">
+  <div class="card-body">
+    <h5 class="card-title text-center fw-bold">{{i.name}}</h5>
+
+    <a href="{% url 'shop:allprod' i.name %}" class="btn btn-primary" style="position:relative;left:39%;">Products</a>
+  </div>
+</div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+
+
+{% endblock %}
